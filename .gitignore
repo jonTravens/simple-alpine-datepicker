@@ -1,0 +1,29 @@
+# --- Fichier système MacOS & Windows --- #
+.DS_Store
+Thumbs.db
+**/*Zone.Identifier
+
+
+# -- Fichiers de conf des IDE --- #
+.idea/
+.vscode 
+*.code-workspace
+*.tags1
+*.tags
+
+
+# --- Lié à Node/yarn --- #
+/node_modules
+yarn.lock
+package-lock.json
+npm-debug.log
+
+# --- Lié a gulp --- #
+
+# --- Lié à la compilation SASS --- #
+*.css.map
+
+# --- Fichier/Repertoires compilés par les tâches Gulp --- #
+## Assets communs compilés par Gulp
+/dist/
+/public/
