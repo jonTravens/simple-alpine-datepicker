@@ -26,4 +26,5 @@ npm-debug.log
 # --- Fichier/Repertoires compilés par les tâches Gulp --- #
 ## Assets communs compilés par Gulp
 /dist/
+/build/
 /public/
