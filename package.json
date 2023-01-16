@@ -1,37 +1,43 @@
 {
-  "name": "simple-datepicker",
-  "version": "1.0.0",
-  "description": "",
-  "scripts": {
-    "dev": "npm run development",
-    "development": "mix",
-    "watch": "mix watch",
-    "watch-poll": "mix watch -- --watch-options-poll=1000",
-    "hot": "mix watch --hot",
-    "prod": "npm run production",
-    "production": "mix --production"
-  },
-  "dependencies": {
-  },
-  "devDependencies": {
-    "autoprefixer": "^10.4.2",
-    "@tailwindcss/forms": "^0.5.3",
-    "laravel-mix": "^6.0.49",
-    "tailwindcss": "^3.2.4",
-    "lodash": "^4.17.21",
-    "postcss": "^8.4.5",
-    "postcss-import": "^14.0.0",
-    "postcss-preset-env": "^7.2.3"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/jonTravens/simple-alpine-datepicker.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/jonTravens/simple-alpine-datepicker/issues"
-  },
-  "homepage": "https://github.com/jonTravens/simple-alpine-datepicker#readme"
+ "name": "simple-datepicker",
+ "version": "1.0.0",
+ "description": "",
+ "scripts": {
+    "dev": "gulp",
+    "build": "gulp prod",
+    "prod": "gulp prod"
+ },
+ "devDependencies": {
+  "@tailwindcss/forms": "^0.5.3",
+  "autoprefixer": "^10.4.2",
+  "gulp": "^4.0.2",
+  "gulp-clean": "^0.4.0",
+  "gulp-clean-css": "^4.3.0",
+  "gulp-concat": "^2.6.1",
+  "gulp-postcss": "^9.0.1",
+  "gulp-purgecss": "^4.1.3",
+  "gulp-terser": "^2.1.0",
+  "lodash": "^4.17.21",
+  "log-symbols": "^4.1.0",
+  "postcss": "^8.4.5",
+  "postcss-import": "^14.0.0",
+  "postcss-preset-env": "^7.2.3",
+  "tailwindcss": "^3.2.4"
+ },
+ "repository": {
+  "type": "git",
+  "url": "git+https://github.com/jonTravens/simple-alpine-datepicker.git"
+ },
+ "keywords": [],
+ "author": "",
+ "license": "ISC",
+ "bugs": {
+  "url": "https://github.com/jonTravens/simple-alpine-datepicker/issues"
+ },
+ "homepage": "https://github.com/jonTravens/simple-alpine-datepicker#readme",
+ "packageManager": "yarn@3.3.1",
+ "dependencies": {
+  "webpack": "^5.75.0",
+  "webpack-cli": "4"
+ }
 }
