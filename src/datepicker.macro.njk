@@ -1,0 +1,172 @@
+{#
+    # Datepicker
+
+    ## Usage
+
+    {{ pef_components.datepicker({
+        id: 'datepicker-demo',
+        label: 'Date du rendez-vous',
+        ...
+    }) }}
+
+    ## Dépendances JS
+
+    {% set
+        page = {
+            js: {
+                body: [
+                    "/cdn/library/modules/datepicker-dialog/datepicker-dialog.js",
+                    "/cdn/library/modules/jquery-data-mask/jquery.mask.js"
+                ]
+            }
+        }
+    %}
+#}
+
+{% macro datepicker(config) -%}
+    {%- from './input.macro.njk' import input -%}
+
+    {%- set data = {
+            appendBtn: '<button type="button" class="btn btn-primary btn-icon-only datepicker-btn" data-tooltip data-original-title="Sélectionner&nbsp;une&nbsp;date" data-tooltip-assoc="false"><span class="icon-calendar" aria-hidden="true"></span><span class="sr-only">Sélectionner une date</span></button>',
+            attributes: {
+                "data-mask": "00/00/0000",
+                "data-mask-preemptive": "true"
+            },
+            help: 'Format : jj/mm/aaaa'
+        } | mergeObjects(config)
+    -%}
+
+    <div class="datepicker">
+        {{ input(data) }}
+
+        <div id="{{ data.id }}" class="datepicker-dialog" role="dialog" aria-modal="true" aria-labelledby="datepicker-dialog-title-{{ data.id }}">
+            <p id="datepicker-dialog-title-{{ data.id }}" class="sr-only">Sélectionner une date</p>
+
+            {# En-tête #}
+            <div class="datepicker-dialog-header">
+                <button type="button" class="datepicker-dialog-prev-year">
+                    <span class="icon-double-chevron-l" aria-hidden="true"></span>
+                    <span class="sr-only">Année précédente</span>
+                </button>
+                <button type="button" class="datepicker-dialog-prev-month">
+                    <span class="icon-chevron-l" aria-hidden="true"></span>
+                    <span class="sr-only">Mois précédent</span>
+                </button>
+                <h2 id="id-grid-label-{{ data.id }}" class="datepicker-dialog-month-year" aria-live="polite">
+                    Octobre 2020
+                </h2>
+                <button type="button" class="datepicker-dialog-next-month">
+                    <span class="icon-chevron-r" aria-hidden="true"></span>
+                    <span class="sr-only">Mois suivant</span>
+                </button>
+                <button type="button" class="datepicker-dialog-next-year">
+                    <span class="icon-double-chevron-r" aria-hidden="true"></span>
+                    <span class="sr-only">Année suivante</span>
+                </button>
+            </div>
+
+            {# Calendrier #}
+            <div class="datepicker-dialog-body">
+                <table class="datepicker-dialog-table table" role="grid" aria-labelledby="id-grid-label-{{ data.id }}">
+                    <thead>
+                        <tr>
+                            <th scope="col">
+                                <span aria-hidden="true">Dim</span>
+                                <span class="sr-only">Dimanche</span>
+                            </th>
+                            <th scope="col">
+                                <span aria-hidden="true">Lun</span>
+                                <span class="sr-only">Lundi</span>
+                            </th>
+                            <th scope="col">
+                                <span aria-hidden="true">Mar</span>
+                                <span class="sr-only">Mardi</span>
+                            </th>
+                            <th scope="col">
+                                <span aria-hidden="true">Mer</span>
+                                <span class="sr-only">Mercredi</span>
+                            </th>
+                            <th scope="col">
+                                <span aria-hidden="true">Jeu</span>
+                                <span class="sr-only">Jeudi</span>
+                            </th>
+                            <th scope="col">
+                                <span aria-hidden="true">Ven</span>
+                                <span class="sr-only">Vendredi</span>
+                            </th>
+                            <th scope="col">
+                                <span aria-hidden="true">Sam</span>
+                                <span class="sr-only">Samedi</span>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="disabled" tabindex="-1"></td>
+                            <td class="disabled" tabindex="-1"></td>
+                            <td class="disabled" tabindex="-1"></td>
+                            <td class="disabled" tabindex="-1"></td>
+                            <td class="disabled" tabindex="-1"></td>
+                            <td class="disabled" tabindex="-1"></td>
+                            <td tabindex="-1" data-date="2022-10-01">1</td>
+                        </tr>
+                        <tr>
+                            <td tabindex="-1" data-date="2022-10-02">2</td>
+                            <td tabindex="-1" data-date="2022-10-03">3</td>
+                            <td tabindex="-1" data-date="2022-10-04">4</td>
+                            <td tabindex="-1" data-date="2022-10-05">5</td>
+                            <td tabindex="-1" data-date="2022-10-06">6</td>
+                            <td tabindex="-1" data-date="2022-10-07">7</td>
+                            <td tabindex="-1" data-date="2022-10-08">8</td>
+                        </tr>
+                        <tr>
+                            <td tabindex="-1" data-date="2022-10-09">9</td>
+                            <td tabindex="-1" data-date="2022-10-10">10</td>
+                            <td tabindex="-1" data-date="2022-10-11">11</td>
+                            <td tabindex="-1" data-date="2022-10-12">12</td>
+                            <td tabindex="-1" data-date="2022-10-13">13</td>
+                            <td tabindex="-1" data-date="2022-10-14">14</td>
+                            <td tabindex="-1" data-date="2022-10-15">15</td>
+                        </tr>
+                        <tr>
+                            <td tabindex="-1" data-date="2022-10-16">16</td>
+                            <td tabindex="-1" data-date="2022-10-17">17</td>
+                            <td tabindex="0" data-date="18-10-2022" role="gridcell" aria-selected="true">18</td>
+                            <td tabindex="-1" data-date="2022-10-19">19</td>
+                            <td tabindex="-1" data-date="2022-10-20">20</td>
+                            <td tabindex="-1" data-date="2022-10-21">21</td>
+                            <td tabindex="-1" data-date="2022-10-22">22</td>
+                        </tr>
+                        <tr>
+                            <td tabindex="-1" data-date="2022-10-23">23</td>
+                            <td tabindex="-1" data-date="2022-10-24">24</td>
+                            <td tabindex="-1" data-date="2022-10-25">25</td>
+                            <td tabindex="-1" data-date="2022-10-26">26</td>
+                            <td tabindex="-1" data-date="2022-10-27">27</td>
+                            <td tabindex="-1" data-date="2022-10-28">28</td>
+                            <td tabindex="-1" data-date="2022-10-29">29</td>
+                        </tr>
+                        <tr>
+                            <td tabindex="-1" data-date="2022-10-30">30</td>
+                            <td tabindex="-1" data-date="2022-10-31">31</td>
+                            <td class="disabled" tabindex="-1"></td>
+                            <td class="disabled" tabindex="-1"></td>
+                            <td class="disabled" tabindex="-1"></td>
+                            <td class="disabled" tabindex="-1"></td>
+                            <td class="disabled" tabindex="-1"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="text-right">
+                <button class="datepicker-dialog-cancel btn btn-default" value="cancel">
+                    Annuler
+                </button>
+                <button class="datepicker-dialog-submit btn btn-primary" value="ok">
+                    Valider
+                </button>
+            </div>
+            <div class="datepicker-dialog-message sr-only" aria-live="polite"></div>
+        </div>
+    </div>
+{%- endmacro %}

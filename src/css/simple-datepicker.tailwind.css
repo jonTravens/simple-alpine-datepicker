@@ -1,0 +1,178 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components { 
+ .datepicker {
+    position: relative;
+  }
+  
+  .datepicker .form-group {
+    z-index: 10;
+  }
+  
+  .datepicker .input-group {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  
+  /* .datepicker .form-control {
+    border-color: #d1d3d4;
+  }
+   */
+  .datepicker-btn.btn-icon-only {
+    background-color: #337ab7;
+    border-color: #337ab7;
+    color: #ffffff;
+  }
+  
+  .datepicker-btn.btn-icon-only [class^="icon-"] {
+    margin-right: 0;
+    font-size: 16px;
+    font-size: 1rem;
+  }
+  
+  .datepicker-dialog {
+    display: none;
+    position: absolute;
+    z-index: 20;
+    top: calc(100% + 5px);
+    left: 0;
+    width: 320px;
+    padding: 12px 8px 20px;
+    background-color: #fff;
+    border-radius: 4px;
+    -webkit-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
+  }
+  
+  @media (max-width: 767px) {
+    .datepicker-dialog {
+      width: 290px;
+    }
+  }
+  
+  .datepicker-dialog-open {
+    display: block;
+  }
+  
+  .datepicker-dialog-header {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    margin: 0 -4px 8px;
+    padding: 0 6px;
+  }
+  
+  .datepicker-dialog-prev-year,
+  .datepicker-dialog-prev-month,
+  .datepicker-dialog-next-year,
+  .datepicker-dialog-next-month {
+    @apply rounded-full hover:bg-slate-200 p-1 justify-center inline-flex;
+    /* width: 24px;
+    height: 24px; */
+    margin: 0 4px;
+    /* padding: 0; */
+    background-color: transparent;
+    border: 0;
+  }
+  
+  .datepicker-dialog-prev-month {
+    margin-right: auto;
+    font-size: 10px;
+    font-size: 0.625rem;
+  }
+  
+  .datepicker-dialog-next-month {
+    margin-left: auto;
+    font-size: 10px;
+    font-size: 0.625rem;
+  }
+  
+  .datepicker-dialog-month-year {
+    font-size: 13px;
+    font-size: 0.8125rem;
+    font-weight: 700;
+  }
+  
+  .datepicker-dialog-body {
+    margin: 0 -8px;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .datepicker-dialog-table {
+    margin-bottom: 12px;
+    table-layout: fixed;
+    border-collapse: separate;
+    border-spacing: 8px;
+  }
+  
+  .datepicker-dialog-table > thead > tr > th {
+    padding: 0 4px;
+    border-bottom: 0;
+    text-align: center;
+  }
+  
+  .datepicker-dialog-table > tbody > tr > th,
+  .datepicker-dialog-table > tbody > tr > td {
+    width: 36px;
+    height: 36px;
+    padding: 4px;
+    vertical-align: middle;
+    background-color: #f5f5f5;
+    border: 1px solid #f5f5f5;
+    border-radius: 12px;
+    text-align: center;
+    color: #262527;
+    line-height: 1;
+    cursor: pointer;
+  }
+  
+  .datepicker-dialog-table > tbody > tr > th:not(.disabled):hover, 
+  .datepicker-dialog-table > tbody > tr > th[tabindex="0"],
+  .datepicker-dialog-table > tbody > tr > td:not(.disabled):hover,
+  .datepicker-dialog-table > tbody > tr > td[tabindex="0"] {
+    background-color: #b7d3eb;
+    color: #135dfe;
+    font-weight: bold;
+  }
+  
+  .datepicker-dialog-table > tbody > tr > th:focus,
+  .datepicker-dialog-table > tbody > tr > td:focus {
+    border-width: 2px;
+    border-color: #135dfe;
+    color: #135dfe;
+    /* font-weight: 400; */
+  }
+  
+  .datepicker-dialog-table > tbody > tr > th.disabled,
+  .datepicker-dialog-table > tbody > tr > td.disabled {
+    /* cursor: default; */
+    opacity: .6;
+  }
+  
+  .datepicker-dialog-table > tbody > tr > th[aria-selected="true"],
+  .datepicker-dialog-table > tbody > tr > td[aria-selected="true"] {
+    font-weight: 700;
+  }
+  
+  .datepicker-dialog-table > tbody > tr > th[aria-selected="true"]:not(:focus),
+  .datepicker-dialog-table > tbody > tr > td[aria-selected="true"]:not(:focus) {
+    border-color: #337ab7;
+    color: #337ab7;
+  }
+  
+  .datepicker-dialog-table > tbody > tr > th[aria-selected="true"][tabindex="0"]:not(:focus),
+  .datepicker-dialog-table > tbody > tr > td[aria-selected="true"][tabindex="0"]:not(:focus) {
+    background-color: #fff;
+  }
+  
+  .datepicker-dialog-table > tbody > tr[style*="visibility: hidden"] {
+    display: none;
+  }
+}

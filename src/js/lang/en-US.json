@@ -1,0 +1,11 @@
+{
+    "pickaDateLabel" : "Pick a date",
+    "buttonLabelChange" : "Changer la date",
+    "messageCursorKeys" : "You can navigate with the arrow keys",
+    "prevYearLabel" : "Previous year",
+    "prevMonthLabel" : "Previous month",
+    "nextYearLabel" : "Next year",
+    "nextMonthLabel" : "Next month",
+    "okButtonLabel" : "Confirm",
+    "cancelButtonLabel" : "Cancel"
+}
