@@ -1,18 +1,8 @@
-/*
- * Dependencies
- */
-/* If you want to use this component as a standalone in your project, you'll first need to include:
- *      - `src\library\frameworks\pe-framework\1.0\css\include\_pole-emploi-variables.scss`
- *      - `src\library\frameworks\pe-framework\1.0\css\include\_mixins.scss`
- */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-
-/* Color scheme */
-/* Add or edit color scheme here
- * If you add new properties, you need to update parameters for the `datepicker-theme` mixin
- * and its execution `@include datepicker-theme()` down this file
- */
-
+@layer components { 
  .datepicker {
     position: relative;
   }
@@ -82,13 +72,7 @@
   .datepicker-dialog-prev-month,
   .datepicker-dialog-next-year,
   .datepicker-dialog-next-month {
-    @apply rounded-full hover:bg-slate-200 p-1 justify-center inline-flex;
-    /* width: 24px;
-    height: 24px; */
-    margin: 0 4px;
-    /* padding: 0; */
-    background-color: transparent;
-    border: 0;
+    @apply rounded-full hover:bg-slate-200 p-1 justify-center inline-flex my-0 mx-1 border-0 bg-transparent;
   }
   
   .datepicker-dialog-prev-month {
@@ -185,21 +169,4 @@
   .datepicker-dialog-table > tbody > tr[style*="visibility: hidden"] {
     display: none;
   }
-  
-  /* .map .datepicker-dialog-table > tbody > tr > th,
-  .map .datepicker-dialog-table > tbody > tr > td {
-    border-radius: 4px;
-  } */
-  
-  /* .map .datepicker-dialog-table > tbody > tr > th:hover, 
-  .map .datepicker-dialog-table > tbody > tr > th[tabindex="0"],
-  .map .datepicker-dialog-table > tbody > tr > td:hover,
-  .map .datepicker-dialog-table > tbody > tr > td[tabindex="0"] {
-    background-color: #c6d4f4;
-  }
-  
-  .map .datepicker-dialog-table > tbody > tr > th[aria-selected="true"]:not(:focus),
-  .map .datepicker-dialog-table > tbody > tr > td[aria-selected="true"]:not(:focus) {
-    border-color: #135dfe;
-    color: #135dfe;
-  } */
+}

@@ -1,0 +1,22 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+    .form-label {
+        @apply font-semibold mb-2 inline-block;
+    }
+
+    .form-control {
+        @apply rounded-l-lg;
+    }
+
+    .help-block {
+        @apply text-slate-400 italic mt-2;
+    }
+
+    .form-group + .form-group {
+        margin-top: 25px;
+    }
+
+}

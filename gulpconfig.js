@@ -6,21 +6,22 @@ module.exports = {
       root: "./",
       src: {
         base: "./src",
-        css: "./src/css",
-        js: "./src/js",
-        img: "./src/img",
+        css 
+        : "./src/**/css",
+        js  : "./src/**/js",
+        img : "./src/**/img",
       },
       dist: {
-        base: "./dist",
-        css: "./dist/css",
-        js: "./dist/js",
-        img: "./dist/img",
+        base: "./public",
+        css : "./public/**/css",
+        js  : "./public/**/js",
+        img : "./public/**/img",
       },
       build: {
-        base: "./build",
-        css: "./build/css",
-        js: "./build/js",
-        img: "./build/img",
+        base: "./public",
+        css : "./public/**/css",
+        js  : "./public/**/js",
+        img : "./public/**/img",
       },
     },
 };

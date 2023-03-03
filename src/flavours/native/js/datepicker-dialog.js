@@ -41,7 +41,7 @@ var DatePickerDialog = function (cdp) {
     this.dialogNode = cdp.querySelector('.datepicker-dialog');
     this.messageNode = this.dialogNode.querySelector('.datepicker-dialog-message');
 
-    this.monthYearNode = this.dialogNode.querySelector('.datepicker-dialog-month-year');
+    this.monthYearNode = this.dialogNode.querySelector('.datepicker-dialog-current');
 
     this.prevYearNode = this.dialogNode.querySelector('.datepicker-dialog-prev-year');
     this.prevMonthNode = this.dialogNode.querySelector('.datepicker-dialog-prev-month');
@@ -71,7 +71,7 @@ DatePickerDialog.prototype.getTranslation = function() {
     let translation = JSON.parse(window.sessionStorage.getItem(itemKey));
     if (translation) { return translation }
 
-    fetch('./dist/js/lang/' + this.locale + '.json')
+    fetch('./js/lang/' + this.locale + '.json')
         .then((response) => response.json())
         .then(function(data) { 
             window.sessionStorage.setItem(itemKey, JSON.stringify(data))
@@ -141,7 +141,6 @@ DatePickerDialog.prototype.init = function () {
 
     // We create the weekdays header
     this.theadNode.innerHTML = '';
-    this.theadNode.insertRow(0);
     this.dayLabels.forEach(function(textLabel, index) {
         let cell = document.createElement('th');
         cell.setAttribute('scope', 'col');

@@ -24,41 +24,46 @@ const logSymbols = require("log-symbols"); //For Symbolic Console logs :) :P
 
 //Development Tasks
 function devHTML() {
-  return src(`${options.paths.src.base}/**/*.html`).pipe(
+  return src('src/**/*.html').pipe(
     dest(options.paths.dist.base)
   );
 }
 
 function devStyles() {
   const tailwindcss = require("tailwindcss");
-  return src(`${options.paths.src.css}/**/*.css`)
-    .pipe(dest(options.paths.src.css))
+  return src('src/**/*.css')
+    .pipe(dest(options.paths.src.base))
     .pipe(postcss([tailwindcss(options.config.tailwindjs)]))
-    .pipe(dest(options.paths.dist.css));
+    .pipe(dest(options.paths.dist.base));
 }
 
 function devScripts() {
-  return src([`${options.paths.src.js}/**/*.js`])
-    .pipe(dest(options.paths.dist.js));
+  return src(['src/**/*.js'])
+    .pipe(dest(options.paths.dist.base));
+}
+function devLang() {
+  return src(['src/**/lang/*.json'])
+    .pipe(dest(options.paths.dist.base));
 }
 
 function devImages() {
-  return src(`${options.paths.src.img}/**/*`)
-    .pipe(dest(options.paths.dist.img)
+  return src('src/**/*/*.{png|jpg|jpeg|svg')
+    .pipe(dest(options.paths.dist.base)
   );
 }
 
 function watchFiles() {
   watch(
-    `${options.paths.src.base}/**/*.{html,php}`,
+    'src/**/*.{html,php}',
     series(devHTML, devStyles)
   );
   watch(
-    [options.config.tailwindjs, `${options.paths.src.css}/**/*.css`],
+    [options.config.tailwindjs, 'src/**/*.css'],
     series(devStyles)
   );
-  watch(`${options.paths.src.js}/**/*.js`, devScripts);
-  watch(`${options.paths.src.img}/**/*`, devImages);
+  watch('src/**/*.js', devScripts);
+  watch('src/**/lang/*.json', devLang);
+  watch('src/**/*', devImages);
   console.log("\n\t" + logSymbols.info, "Watching for Changes..\n");
 }
 
@@ -74,13 +79,13 @@ function devClean() {
 
 //Production Tasks (Optimized Build for Live/Production Sites)
 function prodHTML() {
-  return src(`${options.paths.src.base}/**/*.{html,php}`).pipe(
+  return src('src/**/*.{html,php}').pipe(
     dest(options.paths.build.base)
   );
 }
 
 function prodStyles() {
-  return src(`${options.paths.dist.css}/**/*`)
+  return src(`${options.paths.dist.base}/**/*`)
     .pipe(
       purgecss({
         content: ["src/**/*.{html,js,php}"],
@@ -93,20 +98,20 @@ function prodStyles() {
       })
     )
     .pipe(cleanCSS({ compatibility: "ie8" }))
-    .pipe(dest(options.paths.build.css));
+    .pipe(dest(options.paths.build.base));
 }
 
 function prodScripts() {
   return src([
-    `${options.paths.src.js}/**/*.js`,
+    'src/**/*.js',
   ])
     .pipe(uglify())
-    .pipe(dest(options.paths.build.js));
+    .pipe(dest(options.paths.build.base));
 }
 
 function prodImages() {
   return src(options.paths.src.img + "/**/*")
-    .pipe(dest(options.paths.build.img));
+    .pipe(dest(options.paths.build.base));
 }
 
 function prodClean() {
@@ -129,7 +134,7 @@ function buildFinish(done) {
 
 exports.default = series(
   devClean, // Clean Dist Folder
-  parallel(devStyles, devScripts, devImages, devHTML), //Run All tasks in parallel
+  parallel(devStyles, devScripts, devLang, devImages, devHTML), //Run All tasks in parallel
 //   livePreview, // Live Preview Build
   watchFiles // Watch for Live Changes
 );

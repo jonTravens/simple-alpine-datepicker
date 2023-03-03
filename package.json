@@ -1,11 +1,12 @@
 {
- "name": "simple-datepicker",
+"name": "simple-datepicker",
+"packageManager": "yarn@3.4.1",
  "version": "1.0.0",
  "description": "",
  "scripts": {
-    "dev": "gulp",
-    "build": "gulp prod",
-    "prod": "gulp prod"
+  "dev": "gulp",
+  "build": "gulp prod",
+  "prod": "gulp prod"
  },
  "devDependencies": {
   "@tailwindcss/forms": "^0.5.3",
@@ -26,16 +27,15 @@
  },
  "repository": {
   "type": "git",
-  "url": "git+https://github.com/jonTravens/simple-alpine-datepicker.git"
+  "url": "git+https://github.com/jonTravens/simple-datepicker.git"
  },
  "keywords": [],
  "author": "",
  "license": "ISC",
  "bugs": {
-  "url": "https://github.com/jonTravens/simple-alpine-datepicker/issues"
+  "url": "https://github.com/jonTravens/simple-datepicker/issues"
  },
- "homepage": "https://github.com/jonTravens/simple-alpine-datepicker#readme",
- "packageManager": "yarn@3.3.1",
+ "homepage": "https://github.com/jonTravens/simple-datepicker#readme",
  "dependencies": {
   "webpack": "^5.75.0",
   "webpack-cli": "4"

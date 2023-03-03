@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Simple Datepicker</title>
+        <link href="/common/css/tailwind.css" rel="stylesheet" />
+        <link href="./css/simple-datepicker.css" rel="stylesheet" />
+        <script src="./js/datepicker-dialog.js"></script>
+    </head>
+    <body class="flex items-center justify-center h-screen">
+        <form>
+            <div class="form-group datepicker">
+                <label for="input-date-naissance-f" class="form-label">Date</label> 
+                <div class="input-group"> 
+                    <div class="datepicker-input-group-btn">
+                        <button type="button" class="datepicker-btn">
+                            <svg class="btn-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5m-9-6h.008v.008H12v-.008zM12 15h.008v.008H12V15zm0 2.25h.008v.008H12v-.008zM9.75 15h.008v.008H9.75V15zm0 2.25h.008v.008H9.75v-.008zM7.5 15h.008v.008H7.5V15zm0 2.25h.008v.008H7.5v-.008zm6.75-4.5h.008v.008h-.008v-.008zm0 2.25h.008v.008h-.008V15zm0 2.25h.008v.008h-.008v-.008zm2.25-4.5h.008v.008H16.5v-.008zm0 2.25h.008v.008H16.5V15z" />
+                            </svg>
+                            <span class="sr-only datepicker-dialog-pick-date-label"></span>
+                        </button>
+                        <div id="input-date-naissance" class="datepicker-dialog" role="dialog" aria-modal="true" aria-labelledby="datepicker-dialog-title-input-date-naissance">
+                            <p id="datepicker-dialog-title-input-date-naissance" class="sr-only datepicker-dialog-pick-date-label"></p>
+                            <div class="datepicker-dialog-header">
+                                <button type="button" class="datepicker-dialog-prev-year datepicker-dialog-navigation">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="btn-icon">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M18.75 19.5l-7.5-7.5 7.5-7.5m-6 15L5.25 12l7.5-7.5" />
+                                    </svg>                          
+                                    <span class="sr-only"></span>
+                                </button>
+                                <button type="button" class="datepicker-dialog-prev-month datepicker-dialog-navigation">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="btn-icon">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
+                                    </svg>                          
+                                    <span class="sr-only"></span>
+                                </button>
+                                <h2 id="id-grid-label-input-date-naissance" class="datepicker-dialog-current" aria-live="polite"></h2>
+                                <button type="button" class="datepicker-dialog-next-month datepicker-dialog-navigation">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="btn-icon">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+                                    </svg>                          
+                                    <span class="sr-only"></span>
+                                </button>
+                                <button type="button" class="datepicker-dialog-next-year datepicker-dialog-navigation">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="btn-icon">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M11.25 4.5l7.5 7.5-7.5 7.5m-6-15l7.5 7.5-7.5 7.5" />
+                                    </svg>                          
+                                    <span class="sr-only"></span>
+                                </button>
+                            </div>
+                            <div class="datepicker-dialog-body">
+                                <table class="datepicker-dialog-table" role="grid" aria-labelledby="id-grid-label-input-date-naissance">
+                                    <thead>
+                                    </thead>
+                                    <tbody>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="datepicker-dialog-footer">
+                                <button class="datepicker-dialog-submit btn" value="ok"></button>
+                                <button class="datepicker-dialog-cancel btn" value="cancel"></button>
+                            </div>
+                            <div class="datepicker-dialog-message sr-only" aria-live="polite"></div>
+                        </div>
+                    </div>
+                    <input id="input-date-naissance-f" class="form-control" type="text" name="input-date-naissance" required="" aria-describedby="help-input-date-naissance-f" maxlength="10">
+                </div>
+                <p id="help-input-date-naissance-f" class="help-block">Format : jj/mm/aaaa</p>
+            </div>
+            <div class="form-group datepicker">
+                <label for="input-date-naissance-r" class="form-label">Date</label> 
+                <div class="input-group"> 
+                    <input id="input-date-naissance-r" class="form-control" type="text" name="input-date-naissance" required="" aria-describedby="help-input-date-naissance-r" maxlength="10">
+                    <div class="datepicker-input-group-btn">
+                        <button type="button" class="datepicker-btn">
+                            <svg class="btn-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5m-9-6h.008v.008H12v-.008zM12 15h.008v.008H12V15zm0 2.25h.008v.008H12v-.008zM9.75 15h.008v.008H9.75V15zm0 2.25h.008v.008H9.75v-.008zM7.5 15h.008v.008H7.5V15zm0 2.25h.008v.008H7.5v-.008zm6.75-4.5h.008v.008h-.008v-.008zm0 2.25h.008v.008h-.008V15zm0 2.25h.008v.008h-.008v-.008zm2.25-4.5h.008v.008H16.5v-.008zm0 2.25h.008v.008H16.5V15z" />
+                            </svg>
+                            <span class="sr-only datepicker-dialog-pick-date-label"></span>
+                        </button>
+                        <div id="input-date-naissance" class="datepicker-dialog" role="dialog" aria-modal="true" aria-labelledby="datepicker-dialog-title-input-date-naissance">
+                            <p id="datepicker-dialog-title-input-date-naissance" class="sr-only datepicker-dialog-pick-date-label"></p>
+                            <div class="datepicker-dialog-header">
+                                <button type="button" class="datepicker-dialog-prev-year datepicker-dialog-navigation">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="btn-icon">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M18.75 19.5l-7.5-7.5 7.5-7.5m-6 15L5.25 12l7.5-7.5" />
+                                    </svg>                          
+                                    <span class="sr-only"></span>
+                                </button>
+                                <button type="button" class="datepicker-dialog-prev-month datepicker-dialog-navigation">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="btn-icon">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
+                                    </svg>                          
+                                    <span class="sr-only"></span>
+                                </button>
+                                <h2 id="id-grid-label-input-date-naissance" class="datepicker-dialog-current" aria-live="polite"></h2>
+                                <button type="button" class="datepicker-dialog-next-month datepicker-dialog-navigation">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="btn-icon">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+                                    </svg>                          
+                                    <span class="sr-only"></span>
+                                </button>
+                                <button type="button" class="datepicker-dialog-next-year datepicker-dialog-navigation">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="btn-icon">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M11.25 4.5l7.5 7.5-7.5 7.5m-6-15l7.5 7.5-7.5 7.5" />
+                                    </svg>                          
+                                    <span class="sr-only"></span>
+                                </button>
+                            </div>
+                            <div class="datepicker-dialog-body">
+                                <table class="datepicker-dialog-table" role="grid" aria-labelledby="id-grid-label-input-date-naissance">
+                                    <thead>
+                                    </thead>
+                                    <tbody>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="datepicker-dialog-footer">
+                                <button class="datepicker-dialog-submit btn" value="ok"></button>
+                                <button class="datepicker-dialog-cancel btn" value="cancel"></button>
+                            </div>
+                            <div class="datepicker-dialog-message sr-only" aria-live="polite"></div>
+                        </div>
+                    </div>
+                </div>
+                <p id="help-input-date-naissance-r" class="help-block">Format : jj/mm/aaaa</p>
+            </div>
+        </form>
+    </body>
+</html>
